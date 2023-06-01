@@ -3,6 +3,7 @@ import Button from '@/app/components/button/Button'
 import styles from './Header.module.scss'
 import Logo from './logo'
 import React from 'react';
+import Link from 'next/link';
 
 export default function MobileHeader() {
     const [open, setOpen] = React.useState(false);
@@ -10,7 +11,7 @@ export default function MobileHeader() {
         <>
             <div className={styles.mobileHeader}>
                 <div className={styles['brand-logo']}>
-                    <Logo />
+                    <Link href="/"><Logo /></Link>
                 </div>
                 <div>
                     <img src="./menu.png" onClick={() => setOpen(true)} />
@@ -22,7 +23,7 @@ export default function MobileHeader() {
                     <img src="./close.png" onClick={() => setOpen(false)} />
                 </div>
                 <div className={styles['navigations']}>
-                    <div className={styles['nav-item']}>Home</div>
+                    <div className={styles['nav-item']}><Link href="/">Home</Link></div>
                     <div className={styles['nav-item']}>Surfing</div>
                     <div className={styles['nav-item']}>Hula</div>
                     <div className={styles['nav-item']}>Vulcano</div>
