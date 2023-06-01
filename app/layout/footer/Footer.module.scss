@@ -1,0 +1,16 @@
+@import '../../styles-lib/design-lib.scss';
+
+.footer {
+    background-color: $dark;
+    color: $white;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+
+    &>span>svg {
+        &>path {
+            fill: $white
+        }
+    }
+}

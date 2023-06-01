@@ -1,0 +1,30 @@
+@import '../../styles-lib/design-lib.scss';
+
+.button {
+    padding: 10px;
+    background-color: $green;
+    border-radius: 8px;
+    height: 40px;
+    color: $white;
+    font-size: 14px;
+    box-shadow: none;
+    outline: none;
+    border: none;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 9px 24px 11px;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+
+    &.button-regular {
+        background-color: transparent;
+        color: $green;
+        border: 1px solid $green;
+    }
+}

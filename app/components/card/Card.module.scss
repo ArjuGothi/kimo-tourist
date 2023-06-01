@@ -1,0 +1,13 @@
+@import '../../styles-lib/design-lib.scss';
+
+.card {
+    border-radius: 12px;
+    background-color: $white;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.09), 0 2px 2px rgba(0, 0, 0, 0.09);
+    padding: 24px;
+    position: relative;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
