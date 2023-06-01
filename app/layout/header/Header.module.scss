@@ -16,6 +16,7 @@
 
             a {
                 text-decoration: none;
+                color: $dark;
             }
 
             &:hover {
@@ -119,6 +120,7 @@
     & .navigations {
         a {
             text-decoration: none;
+            color: $dark;
         }
 
         flex-direction: column;
