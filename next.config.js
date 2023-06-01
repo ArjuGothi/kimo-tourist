@@ -4,10 +4,10 @@ const nextConfig = {
         return [
             {
                 source: '/api/:path*',
-                destination: 'https://api.example.com/:path*',
-            },
+                destination: 'https://web-dev.dev.kimo.ai/:path*'
+            }
         ]
-    },
+    }
 }
 
 module.exports = nextConfig

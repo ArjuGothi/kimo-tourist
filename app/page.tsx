@@ -8,65 +8,28 @@ import React from 'react'
 import { request } from './services/request'
 import Link from 'next/link'
 
-const highlightsMock = [
-  {
-    image: '/surfing.png',
-    title: 'Surfing',
-    description: 'Best Hawaiian islands for surfing asdfasd asdfasdf asdfasd fasdf asdfasdf asdfasdfasdfasd asdfasdf'
-  },
-  {
-    image: '/hula.png',
-    title: 'Hula',
-    description: 'Try it yourself'
-  },
-  {
-    image: '/vulcano.png',
-    title: 'Vulcanoes',
-    description: 'Volcanic condition can change at any time'
-  }
-]
-
-const categoriesMock = [
-  {
-    name: 'Adventure'
-  },
-  {
-    name: 'Culinary',
-  },
-  {
-    name: 'Eco-tourism',
-  },
-  {
-    name: 'Family',
-  },
-  {
-    name: 'Sport'
-  }
-];
-
 export default function Home() {
-  // Setting mock data as api returns 500 error
-  const [highlights, setHighlights] = React.useState(highlightsMock);
-  const [categories, setCategories] = React.useState(categoriesMock);
+  const [highlights, setHighlights] = React.useState([]);
+  const [categories, setCategories] = React.useState([]);
 
   React.useEffect(() => {
-    request('/v1/hightlights', { method: 'get' }).then((res) => {
-      if (res.ok && res.status === 200) {
-        console.log(res)
-        // setHighlights(res)
-      }
-    }).catch((err) => {
-      alert(err?.message || err)
-    })
+    if (!highlights.length) {
+      request('/v1/highlights', { method: 'get' }).then((res: any) => {
+        setHighlights(res)
+      }).catch((err) => {
+        console.error(err?.message || err)
+      })
+    }
+  });
 
-    request('/v1/categories', { method: 'get' }).then((res) => {
-      if (res.ok && res.status === 200) {
-        console.log(res)
-        // setHighlights(res)
-      }
-    }).catch((err) => {
-      alert(err?.message || err)
-    })
+  React.useEffect(() => {
+    if (!categories.length) {
+      request('/v1/categories', { method: 'get' }).then((res: any) => {
+        setCategories(res)
+      }).catch((err) => {
+        console.error(err?.message || err)
+      })
+    }
   });
 
   return (
@@ -86,7 +49,7 @@ export default function Home() {
         <div className={styles['section-title']}>Highlights</div>
         <div className={styles['section-content']}>
           <div className={styles['highlight-container']}>
-            {highlights.map((data, index) => (
+            {highlights.map((data: any, index) => (
               <Card key={index} className={styles['highlight-card']}>
                 <img className={styles['hightlight-card-image']} src={data.image} alt={data.title} />
                 <div className={styles['hightlight-details']}>
@@ -111,7 +74,7 @@ export default function Home() {
           <div className={styles['section-content']}>
             <div className={styles['category-container']}>
               <div className={styles['category-list']}>
-                {categories.map((data, index) => (
+                {categories.map((data: any, index) => (
                   <Card
                     key={index}
                     className={styles['category-card']}

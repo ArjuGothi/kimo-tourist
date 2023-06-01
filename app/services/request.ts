@@ -14,6 +14,10 @@ export const request = async (url: string, options: any): Promise<Response> => {
 
     try {
         const response: Response = await fetch(URL, restOptions);
+        if (response.ok) {
+            const parsed = await response.json();
+            return Promise.resolve(parsed);
+        }
         return Promise.resolve(response);
     } catch (error: unknown) {
         return Promise.reject("Something went wrong")
