@@ -16,6 +16,7 @@ const activityDetailsMock = {
 }
 
 export default function HighlightActivityComponent({ activity }: any) {
+    // Setting mock data as api returns 500 error
     const [details, setDetails] = React.useState(activityDetailsMock);
 
     React.useEffect(() => {

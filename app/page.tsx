@@ -45,6 +45,7 @@ const categoriesMock = [
 ];
 
 export default function Home() {
+  // Setting mock data as api returns 500 error
   const [highlights, setHighlights] = React.useState(highlightsMock);
   const [categories, setCategories] = React.useState(categoriesMock);
 
